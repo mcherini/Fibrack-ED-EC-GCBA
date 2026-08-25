@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal ET&DC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, Tahoma, sans-serif;
+        }
+
+        body {
+            background: #f4f7f6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 56px;
+            color: #6fdbe2;
+            margin-bottom: 15px;
+        }
+
+        .owner {
+            background: #0b2545;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team {
+            flex: 1;
+            min-width: 420px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .blue {
+            border: 2px solid #2a6f97;
+        }
+
+        .purple {
+            border: 2px solid #8338ec;
+        }
+
+        .green {
+            border: 2px solid #2a9d8f;
+        }
+
+        .team-title {
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .blue .team-title {
+            background: #2a6f97;
+        }
+
+        .purple .team-title {
+            background: #8338ec;
+        }
+
+        .green .team-title {
+            background: #2a9d8f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        th {
+            background: #f8f9fa;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: #fafafa;
+        }
+
+        .btn {
+            background: #0b2545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1a3a60;
+        }
+
+        /* Estilo para los iconos de WhatsApp */
+        .wsp-link {
+            color: #25D366;
+            margin-left: 5px;
+            font-size: 15px;
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .wsp-link:hover {
+            color: #128C7E;
+            transform: scale(1.2);
+        }
+
+        .owner .wsp-link,
+        .team-title .wsp-link {
+            font-size: 18px;
+            margin-left: 8px;
+        }
+
+        .tech-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-item {
+            white-space: nowrap;
+        }
+
+        /* Estilo para el contenedor y botón inferior de Guardias */
+        .footer-action {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .btn-guardia {
+            display: inline-block;
+            background: #0b2545;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-guardia:hover {
+            background: #1a3a60;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Personal</h1>
+
+    <div class="owner">
+        Product Owner: Guillermo Bollati
+        <a href="https://wa.me/5493515727138" target="_blank" class="wsp-link" title="Contactar por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <div class="grid">
+
+        <div class="team blue">
+            <div class="team-title">
+                <span>👥 Team Leader: Jorge Luis Ontivero</span>
+                <a href="https://wa.me/5493512634863" target="_blank" class="wsp-link" title="Contactar por WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>GIS/DC</th>
+                        <th>SITIO</th>
+                        <th>STREAM</th>
+                        <th>REFERENTE</th>
+                        <th>FIBRACK</th>
+                    </tr>
+                </thead>
+                <tbody id="sur"></tbody>
+            </table>
+        </div>
+
+        <div class="team purple">
+            <div class="team-title">
+                <span>👥 Team Leader: Alejandro J Vigliano</span>
+                <a href="https://wa.me/5493516564828" target="_blank" class="wsp-link" title="Contactar por WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>GIS/DC</th>
+                        <th>SITIO</th>
+                        <th>STREAM</th>
+                        <th>REFERENTE</th>
+                        <th>FIBRACK</th>
+                    </tr>
+                </thead>
+                <tbody id="norte"></tbody>
+            </table>
+        </div>
+
+        <div class="team green">
+            <div class="team-title">
+                <span>👥 Team Leader: Ruben Peralta</span>
+                <a href="https://wa.me/5493515227562" target="_blank" class="wsp-link" title="Contactar por WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>GIS/DC</th>
+                        <th>SITIO</th>
+                        <th>STREAM</th>
+                        <th>REFERENTE</th>
+                        <th>FIBRACK</th>
+                    </tr>
+                </thead>
+                <tbody id="centro"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="footer-action">
+        <a href="https://cablevisionfibertel-my.sharepoint.com/personal/raperalta_teco_com_ar/_layouts/15/download.aspx?UniqueId=da194aec%2D9c3d%2D4f30%2Dbeb6%2Db29beeca0152"
+            target="_blank" class="btn-guardia">
+            👮🏼 Guardias ED&DC
+        </a>
+    </div>
+
+    <script>
+
+        const links = {
+            CRO: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=8f593bfa%2D7ad0%2D4b41%2D8369%2Dfbc4169a20d3",
+            CDR: "",
+            SAI: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=e0b9062d%2De268%2D4277%2Da60c%2D4d880e75f567",
+            ARG: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=95ba3431%2Dfb3d%2D4ad6%2Da3c3%2D2f112743c694",
+            AVN: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=5adee342%2D17a1%2D4dc7%2Db7c3%2D8b46a9a99d75",
+            CCS: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=655d17a2%2Df694%2D459f%2D9148%2D242a5cf6dc37",
+            LAC: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=c287ebe8%2Dd8cb%2D4da4%2D9412%2D4156e7b859d7",
+
+            VAD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=418eea5e%2D0245%2D471a%2Dbbfc%2D83eb16ec541b",
+            ACD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=2c1aab11%2D79ef%2D42e8%2Dbaaa%2De4e5d09f44f0",
+            RIO: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=83cc4e06%2De8bc%2D4bbc%2D924d%2Db3a37712ecb4",
+            VLD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=0a210e6a%2D6064%2D49ac%2Da6f0%2D7f2ef2402e25",
+            JCM: "",
+            MLA: "",
+
+            CEN: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=f95128f3%2D2d37%2D40b0%2Daddd%2D046fe013e189",
+            JRD: "",
+            TRJ: "",
+            CBC_HFC: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=354647c4%2De2f6%2D44bb%2D8745%2D50c02bf273a0",
+            CBC_FTTH: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=0c4da6dc%2D8928%2D4282%2D8c36%2D4d5aba3d0195",
+            SVC: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=e41e2d92%2D4fdd%2D5b11%2Daeda%2D367408cbc584",
+            SCX: ""
+
+
+        };
+
+        // Estructura de datos: [Código, Sitio, Stream, [[NombreTecnico, Teléfono], [NombreTecnico2, Teléfono2]]]
+        const sur = [
+            ["CRO", "CORDOBA OESTE", "Sur", [["Claudio Ortiz", "5493516410382"], ["Fernando Casagrande", "5493516358054"]]],
+            ["CDR", "CERRO DE LAS ROSAS", "Sur", [["Victor Acosta", "5493516410040"], ["Guillermo Gorosito", "5493516358306"]]],
+            ["SAI", "SANTA ISABEL", "Sur", [["Gaston Bordon", "5493516002700"], ["Kevin Espinoza", "5493512634809"]]],
+            ["ARG", "ARGUELLO", "Sur", [["Victor Acosta", "5493516410040"], ["Guillermo Gorosito", "5493516358306"]]],
+            ["AVN", "CORDOBA AVIONES", "Sur", [["Gaston Bordon", "5493516002700"], ["Kevin Espinoza", "5493512634809"]]],
+            ["CCS", "CHATEAU", "Sur", [["Claudio Ortiz", "5493516410382"], ["Fernando Casagrande", "5493516358054"]]],
+            ["LAC", "LA CALERA", "Sur", [["Victor Acosta", "5493516410040"], ["Guillermo Gorosito", "5493516358306"]]]
+        ];
+
+        const norte = [
+            ["VAD", "VILLA ALLENDE HFC", "Norte", [["Mauro Cherini", "5493516358562"], ["Juan Rubio", "5493543692411"]]],
+            ["ACD", "ALTA CORDOBA", "Norte", [["Jose Iranzo", "5493516410439"], ["Gonzalo Rodriguez", "5493512634839"]]],
+            ["RIO", "RIO CEBALLOS", "Norte", [["Mauro Cherini", "5493516358562"], ["Juan Rubio", "5493543692411"]]],
+            ["VLD", "VILLA ALLENDE FTTH", "Norte", [["Mauro Cherini", "5493516358562"], ["Juan Rubio", "5493543692411"]]],
+            ["JCM", "JUAREZ CELMAN", "Norte", [["Walter Gomez", "5493516356936"], ["Javier Rivulgo", "5493516358146"]]],
+            ["MLA", "MALVINAS ARGENTINAS", "Norte", [["Walter Gomez", "5493516356936"], ["Javier Rivulgo", "5493516358146"]]]
+        ];
+
+        const centro = [
+            ["CEN", "CORDOBA CENTRO", "Centro", []],
+            ["JRD", "JARDIN", "Centro", [["Jose Barrionuevo", "5493516359842"], ["Caludio Chavez", "5493516356973"]]],
+            ["TRJ", "TREJO", "Centro", []],
+            ["CBC_HFC", "CORDOBA CENTRO HFC", "Centro", [["Marco Vazquez", "5493516410251"], ["Heber Espinoza", "3512637315 "]]],
+            ["CBC_FTTH", "CORDOBA CENTRO FTTH", "Centro", [["Marco Vazquez", "5493516410251"], ["Heber Espinoza", "3512637315 "]]],
+            ["SVC", "SAN VICENTE", "Centro", [["Jose Barrionuevo", "5493516359842"], ["Caludio Chavez", "5493516356973"]]],
+            ["SCX", "CORDOBA SAN CARLOS", "Centro", [["Jose Barrionuevo", "5493516359842"], ["Caludio Chavez", "5493516356973"]]]
+        ];
+
+        function abrirEnlace(codigo) {
+            const url = links[codigo];
+
+            if (!url || url.trim() === "") {
+                alert("Favor de comunicarse con el tecnico de guardia o su Team Leader");
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function generar(tabla, datos) {
+            let html = "";
+
+            datos.forEach(item => {
+                const codigo = item[0];
+                const tecnicos = item[3] || [];
+
+                let tecnicosHtml = "-";
+                if (tecnicos.length > 0) {
+                    tecnicosHtml = `<div class="tech-container">` +
+                        tecnicos.map(tech => `
+                            <div class="tech-item">
+                                ${tech[0]} 
+                                <a href="https://wa.me/${tech[1]}" target="_blank" class="wsp-link" title="Contactar a ${tech[0]}">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        `).join("") +
+                        `</div>`;
+                }
+
+                html += `
+        <tr>
+            <td><b>${codigo}</b></td>
+            <td>${item[1]}</td>
+            <td>${item[2]}</td>
+            <td>${tecnicosHtml}</td>
+            <td>
+                <button
+                    class="btn"
+                    onclick="abrirEnlace('${codigo}')">
+                    🔗 FIBRACK
+                </button>
+            </td>
+        </tr>
+        `;
+            });
+
+            document.getElementById(tabla).innerHTML = html;
+        }
+
+        generar("sur", sur);
+        generar("norte", norte);
+        generar("centro", centro);
+
+    </script>
+
+</body>
+
+</html>
