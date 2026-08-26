@@ -22,8 +22,8 @@
 
         h1 {
             text-align: center;
-            font-size: 56px;
-            color: #6fdbe2;
+            font-size: 42px;
+            color: #2a6f97;
             margin-bottom: 15px;
         }
 
@@ -37,18 +37,19 @@
             font-weight: bold;
         }
 
+        /* Cambio de Flexbox a CSS Grid adaptable */
         .grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
         }
 
         .team {
-            flex: 1;
-            min-width: 420px;
             background: white;
             border-radius: 8px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .blue {
@@ -70,6 +71,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: 13px;
         }
 
         .blue .team-title {
@@ -84,20 +86,26 @@
             background: #2a9d8f;
         }
 
+        /* Permite scroll horizontal en la tabla solo si la pantalla es ultra estrecha */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         th {
             background: #f8f9fa;
-            padding: 8px;
+            padding: 6px 4px;
             border-bottom: 1px solid #ddd;
         }
 
         td {
-            padding: 8px;
+            padding: 6px 4px;
             text-align: center;
             border-bottom: 1px solid #eee;
         }
@@ -110,22 +118,22 @@
             background: #0b2545;
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 11px;
+            border-radius: 4px;
+            padding: 4px 6px;
+            font-size: 10px;
             cursor: pointer;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .btn:hover {
             background: #1a3a60;
         }
 
-        /* Estilo para los iconos de WhatsApp */
         .wsp-link {
             color: #25D366;
-            margin-left: 5px;
-            font-size: 15px;
+            margin-left: 4px;
+            font-size: 14px;
             text-decoration: none;
             transition: transform 0.2s ease, color 0.2s ease;
             display: inline-block;
@@ -139,14 +147,14 @@
 
         .owner .wsp-link,
         .team-title .wsp-link {
-            font-size: 18px;
+            font-size: 16px;
             margin-left: 8px;
         }
 
         .tech-container {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
             align-items: center;
             justify-content: center;
         }
@@ -155,7 +163,6 @@
             white-space: nowrap;
         }
 
-        /* Estilo para el contenedor y botón inferior de Guardias */
         .footer-action {
             text-align: center;
             margin-top: 30px;
@@ -177,6 +184,13 @@
         .btn-guardia:hover {
             background: #1a3a60;
             transform: translateY(-2px);
+        }
+
+        /* Fuerza 3 columnas en pantallas medianas/grandes (desktop y laptop) */
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     </style>
 </head>
@@ -201,18 +215,20 @@
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>GIS/DC</th>
-                        <th>SITIO</th>
-                        <th>STREAM</th>
-                        <th>REFERENTE</th>
-                        <th>FIBRACK</th>
-                    </tr>
-                </thead>
-                <tbody id="sur"></tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GIS/DC</th>
+                            <th>SITIO</th>
+                            <th>STREAM</th>
+                            <th>REFERENTE</th>
+                            <th>FIBRACK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sur"></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="team purple">
@@ -222,18 +238,20 @@
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>GIS/DC</th>
-                        <th>SITIO</th>
-                        <th>STREAM</th>
-                        <th>REFERENTE</th>
-                        <th>FIBRACK</th>
-                    </tr>
-                </thead>
-                <tbody id="norte"></tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GIS/DC</th>
+                            <th>SITIO</th>
+                            <th>STREAM</th>
+                            <th>REFERENTE</th>
+                            <th>FIBRACK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="norte"></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="team green">
@@ -243,18 +261,20 @@
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>GIS/DC</th>
-                        <th>SITIO</th>
-                        <th>STREAM</th>
-                        <th>REFERENTE</th>
-                        <th>FIBRACK</th>
-                    </tr>
-                </thead>
-                <tbody id="centro"></tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GIS/DC</th>
+                            <th>SITIO</th>
+                            <th>STREAM</th>
+                            <th>REFERENTE</th>
+                            <th>FIBRACK</th>
+                        </tr>
+                    </thead>
+                    <tbody id="centro"></tbody>
+                </table>
+            </div>
         </div>
 
     </div>
@@ -267,7 +287,6 @@
     </div>
 
     <script>
-
         const links = {
             CRO: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=8f593bfa%2D7ad0%2D4b41%2D8369%2Dfbc4169a20d3",
             CDR: "",
@@ -276,14 +295,12 @@
             AVN: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=5adee342%2D17a1%2D4dc7%2Db7c3%2D8b46a9a99d75",
             CCS: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=655d17a2%2Df694%2D459f%2D9148%2D242a5cf6dc37",
             LAC: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=c287ebe8%2Dd8cb%2D4da4%2D9412%2D4156e7b859d7",
-
             VAD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=418eea5e%2D0245%2D471a%2Dbbfc%2D83eb16ec541b",
             ACD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=2c1aab11%2D79ef%2D42e8%2Dbaaa%2De4e5d09f44f0",
             RIO: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=83cc4e06%2De8bc%2D4bbc%2D924d%2Db3a37712ecb4",
             VLD: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=0a210e6a%2D6064%2D49ac%2Da6f0%2D7f2ef2402e25",
             JCM: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=a700b532%2Dadb4%2D43b2%2Db089%2D2337dc3c47b3",
             MLA: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=b319951b%2D22d6%2D439f%2D9377%2Debff120ce124",
-
             CEN: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=f95128f3%2D2d37%2D40b0%2Daddd%2D046fe013e189",
             JRD: "",
             TRJ: "",
@@ -291,11 +308,8 @@
             CBC_FTTH: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=0c4da6dc%2D8928%2D4282%2D8c36%2D4d5aba3d0195",
             SVC: "https://cablevisionfibertel.sharepoint.com/sites/Tecnica_CBA01/_layouts/15/download.aspx?UniqueId=e41e2d92%2D4fdd%2D5b11%2Daeda%2D367408cbc584",
             SCX: ""
-
-
         };
 
-        // Estructura de datos: [Código, Sitio, Stream, [[NombreTecnico, Teléfono], [NombreTecnico2, Teléfono2]]]
         const sur = [
             ["CRO", "CORDOBA OESTE", "Sur", [["Claudio Ortiz", "5493516410382"], ["Gabriel Mansilla", "5493516359546"]]],
             ["CDR", "CERRO DE LAS ROSAS", "Sur", [["Victor Acosta", "5493516410040"], ["Guillermo Gorosito", "5493516358306"]]],
@@ -348,7 +362,7 @@
                         tecnicos.map(tech => `
                             <div class="tech-item">
                                 ${tech[0]} 
-                                <a href="https://wa.me/${tech[1]}" target="_blank" class="wsp-link" title="Contactar a ${tech[0]}">
+                                <a href="https://wa.me/${tech[1].trim()}" target="_blank" class="wsp-link" title="Contactar a ${tech[0]}">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </a>
                             </div>
@@ -379,7 +393,6 @@
         generar("sur", sur);
         generar("norte", norte);
         generar("centro", centro);
-
     </script>
 
 </body>
